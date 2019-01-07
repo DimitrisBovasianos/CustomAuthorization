@@ -23,12 +23,12 @@ class CustomMiddleware(MiddlewareMixin):
         now = timezone.now()
         seconds_left = (session_expriry_date-now).total_seconds()
         print(seconds_left)
-        time = "00:00:20"
+        time = "00:05:00"
         prefered_time=sum(x * int(t) for x, t in zip([3600, 60, 1], time.split(":")))
         if user.is_authenticated and seconds_left<prefered_time:
             token = request.session['refresh_token']
             print(token)
-            creds = {'grant_type':'refresh_token','client_id':'yD8oVDsbfip7yZLqqBeMGf1AYRwvRF2CzudzzqM9','client_secret':'Et427gqwkzMdNGiJKUa1UaChYBlbXffvmNBKaT0ue7eCjepai7D8rTltbwwcGLksIw5WikVLVVK9pOAvh8AwnNzRlzSOF2MTAXkku1qWeJUDDVke8XM7kt58C8OJMuOC','refresh_token':token}
+            creds = {'grant_type':'refresh_token','client_id':'<client_id>','client_secret':'<client_secret>','refresh_token':token}
             creds = parse.urlencode(creds).encode()
             url = 'http://127.0.0.1:8000/o/token/'
             req = requestalter.Request(url,creds)
