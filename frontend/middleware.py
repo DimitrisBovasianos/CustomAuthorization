@@ -34,7 +34,9 @@ class CustomMiddleware(MiddlewareMixin):
             req = requestalter.Request(url,creds)
             resp = requestalter.urlopen(req)
             raw_data  = resp.read()
-            request.session.set_expiry(3600)
+            json_data = raw_data.decode('utf-8')
+            data = json.loads(json_data)
+            request.session.set_expiry(data['expires_in'])
             return
         elif seconds_left==0:
             logout(request)
