@@ -1,0 +1,10 @@
+{% block content %}
+
+{% if user.is_authenticated %}
+
+yes
+{{request.user.username}}
+
+{% endif %}
+
+{% endblock %}
