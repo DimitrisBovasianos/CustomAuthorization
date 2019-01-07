@@ -14,8 +14,8 @@ We can easily create a Sign UP with DRF to sign up users later from app to anoth
 
 In the custom authentication backend we make call to the first's app API with urllib to obtain access token.
 
-We save the refress token in sessions and little before it expired we make a another request in the API,
+We save the refress token in sessions(There more than ways to save the tokens model etc) and little before it expired we make a another request in the API,
 
-to obtain another
+to obtain another.
 
 
